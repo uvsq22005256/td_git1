@@ -15,6 +15,9 @@ def egal():
     affichage = ""
 
 def reset():
+    global affichage, label_affichage
+    label_affichage.config(text=0)
+    affichage = ""
 
 racine = Tk()
 racine.title("calculatrice")
@@ -39,7 +42,7 @@ bouton7 = Button(racine, text = "7", width = 5, command = lambda: addNum("7"))
 bouton8 = Button(racine, text = "8", width = 5, command = lambda: addNum("8"))
 bouton9 = Button(racine, text = "9", width = 5, command = lambda: addNum("9"))
 bouton_egal = Button(racine, text="=", width = 5, command = egal)
-bouton_supprime = Button(racine, text="C", width = 5,)
+bouton_supprime = Button(racine, text="C", width = 5, command = reset)
 label_affichage = Label(racine, text=affichage, bg="orange")
 bouton_point = Button(racine, text=".", width = 5, command = lambda: addNum("."))
 
