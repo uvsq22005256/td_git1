@@ -19,9 +19,29 @@ def reset():
     label_affichage.config(text=0)
     affichage = ""
 
+def gestEvent(evt):
+    if evt.char == "+":
+        addNum("+")
+    elif evt.char == "-":
+        addNum("-")
+    elif evt.char == "*":
+        addNum("*")
+    elif evt.char == "/":
+        addNum("/")
+    elif evt.char == ".":
+        addNum(".")
+    elif evt.char ==  "\r":
+        egal()
+    else:
+        for i in range(10):
+            if evt.char == str(i):
+                addNum(str(i))
+    
+
 racine = Tk()
 racine.title("calculatrice")
-racine.geometry("250x250+100+100")
+#racine.geometry("250x150+100+100")
+racine.bind("<Key>", gestEvent)
 
 affichage = "0"
 
@@ -31,7 +51,7 @@ bouton_add = Button(racine, text="+", width = 5, activebackground = "Black", act
 bouton_moins = Button(racine, text="-", width = 5, activebackground = "Black", activeforeground = "White", command = lambda: addNum("-"))
 bouton_diviser = Button(racine, text = "/", width = 5, activebackground = "Black", activeforeground = "White", command = lambda: addNum("/"))
 bouton_multipli = Button(racine, text = "*", width = 5, activebackground = "Black", activeforeground = "White", command = lambda: addNum("*"))
-bouton0 = Button(racine, text = "0", width = 20, activebackground = "Black", activeforeground = "White", command = lambda: addNum("0"))
+bouton0 = Button(racine, text = "0", width = 19, activebackground = "Black", activeforeground = "White", command = lambda: addNum("0"))
 bouton1 = Button(racine, text = "1", width = 5, activebackground = "Black", activeforeground = "White", command = lambda: addNum("1"))
 bouton2 = Button(racine, text = "2", width = 5, activebackground = "Black", activeforeground = "White", command = lambda: addNum("2"))
 bouton3 = Button(racine, text = "3", width = 5, activebackground = "Black", activeforeground = "White", command = lambda: addNum("3"))
