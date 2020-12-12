@@ -10,9 +10,10 @@ def addNum(arg):
 
 def egal():
     global affichage, label_affichage
-    affichage = eval(affichage)
-    label_affichage.config(text=affichage)
-    affichage = ""
+    if affichage != "":
+        affichage = eval(affichage)
+        label_affichage.config(text=affichage)
+        affichage = ""
 
 def reset():
     global affichage, label_affichage
