@@ -18,7 +18,9 @@ def addNum(arg):
 def egal():
     global affichage, label_affichage
     if affichage != "":
+        print(type(affichage), affichage)
         affichage = eval(affichage)
+        print(type(affichage), affichage)
         label_affichage.config(text=affichage)
         affichage = ""
 
@@ -48,6 +50,7 @@ def gestEvent(evt):
 
 racine = Tk()
 racine.title("calculatrice")
+racine.resizable(width = False, height = False)
 #racine.geometry("250x150+100+100")
 racine.bind("<Key>", gestEvent)
 
