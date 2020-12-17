@@ -94,9 +94,9 @@ bouton_graphe_log = Button(racine, text = "Courbe log(x)", width = 12, activebac
 bouton_parenthese_ouverte = Button(racine, text = "(", width = 5, activebackground = "Black", activeforeground = "White", command = lambda: addNum("("))
 bouton_parenthese_ferme = Button(racine, text = ")", width = 5, activebackground = "Black", activeforeground = "White", command = lambda: addNum(")"))
 bouton_carre = Button(racine, text = "²", width = 5, activebackground = "Black", activeforeground = "White", command = lambda: addNum("**2"))
-bouton_carre = Button(racine, text = "²", width = 5, activebackground = "Black", activeforeground = "White", command = lambda: addNum("**2"))
+bouton_racine_carre = Button(racine, text = "sqrt(", width = 5, activebackground = "Black", activeforeground = "White", command = lambda: addNum("sqrt("))
 
-#affichage des 
+#affichage des widgets
 bouton_add.grid(column=0,row=1)
 bouton_moins.grid(column=0, row = 2)
 bouton_diviser.grid(column=0, row=3)
@@ -119,7 +119,9 @@ bouton_graphe_carre.grid(column=4, row=1)
 bouton_graphe_racine_carre.grid(column=4, row=2)
 bouton_graphe_exp.grid(column=4,row = 3)
 bouton_graphe_log.grid(column=4,row = 4)
-bouton_parenthese_ouverte.grid(column=5,row=2)
-bouton_parenthese_ferme.grid(column=5,row=1)
+bouton_parenthese_ouverte.grid(column=5,row=1)
+bouton_parenthese_ferme.grid(column=5,row=2)
+bouton_carre.grid(column = 5, row = 3)
+bouton_racine_carre.grid(column = 5, row = 4)
 
 racine.mainloop()
