@@ -94,7 +94,7 @@ bouton_graphe_log = Button(racine, text = "Courbe log(x)", width = 12, activebac
 bouton_parenthese_ouverte = Button(racine, text = "(", width = 5, activebackground = "Black", activeforeground = "White", command = lambda: addNum("("))
 bouton_parenthese_ferme = Button(racine, text = ")", width = 5, activebackground = "Black", activeforeground = "White", command = lambda: addNum(")"))
 bouton_carre = Button(racine, text = "²", width = 5, activebackground = "Black", activeforeground = "White", command = lambda: addNum("**2"))
-
+bouton_carre = Button(racine, text = "²", width = 5, activebackground = "Black", activeforeground = "White", command = lambda: addNum("**2"))
 
 #affichage des 
 bouton_add.grid(column=0,row=1)
