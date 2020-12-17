@@ -2,12 +2,14 @@ from tkinter import *
 from pylab import figure, axes, linspace, plt, sqrt, log, exp
 
 def drawGraph(func):
+    """Fonction qui nous trace la courbe f(x) = func"""
     ax = axes()
     x = linspace(0, 100, 10000)
     ax.plot(x, eval(func))
     plt.show()
 
 def addNum(arg):
+    """Ajoute 'arg' à notre variable affichage et refresh le label"""
     global affichage, label_affichage
     if affichage == "0":
         affichage = ""
@@ -16,15 +18,23 @@ def addNum(arg):
     return
 
 def egal():
+    """Affiche le résultat de l'opération en cours et efface le contenue de la variable affichage"""
     global affichage, label_affichage
     if affichage != "":
-        print(type(affichage), affichage)
-        affichage = eval(affichage)
-        print(type(affichage), affichage)
-        label_affichage.config(text=affichage)
-        affichage = ""
+        try:
+            #print(type(affichage), affichage)
+            affichage = eval(affichage)
+            #print(type(affichage), affichage)
+            label_affichage.config(text=affichage)
+            affichage = ""
+        except:
+            affichage = "Error"
+            label_affichage.config(text=affichage)
+            affichage = ""
+
 
 def reset():
+    """Affiche 0"""
     global affichage, label_affichage
     label_affichage.config(text=0)
     affichage = ""
@@ -81,6 +91,9 @@ bouton_graphe_carre = Button(racine, text = "Courbe x²", width = 12, activeback
 bouton_graphe_racine_carre = Button(racine, text = "Courbe racine(x)", width = 12, activebackground = "Black", activeforeground = "White", command = lambda: drawGraph("sqrt(x)"))
 bouton_graphe_exp = Button(racine, text = "Courbe exp(x)", width = 12, activebackground = "Black", activeforeground = "White", command = lambda: drawGraph("exp(x)"))
 bouton_graphe_log = Button(racine, text = "Courbe log(x)", width = 12, activebackground = "Black", activeforeground = "White", command = lambda: drawGraph("log(x)"))
+bouton_parenthese_ouverte = Button(racine, text = "(", width = 5, activebackground = "Black", activeforeground = "White", command = lambda: addNum("("))
+bouton_parenthese_ferme = Button(racine, text = ")", width = 5, activebackground = "Black", activeforeground = "White", command = lambda: addNum(")"))
+bouton_carre = Button(racine, text = "²", width = 5, activebackground = "Black", activeforeground = "White", command = lambda: addNum("**2"))
 
 
 #affichage des 
@@ -106,8 +119,7 @@ bouton_graphe_carre.grid(column=4, row=1)
 bouton_graphe_racine_carre.grid(column=4, row=2)
 bouton_graphe_exp.grid(column=4,row = 3)
 bouton_graphe_log.grid(column=4,row = 4)
-
-
-
+bouton_parenthese_ouverte.grid(column=5,row=2)
+bouton_parenthese_ferme.grid(column=5,row=1)
 
 racine.mainloop()
